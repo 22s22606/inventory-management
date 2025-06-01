@@ -1,0 +1,30 @@
+public class InventorySearch {
+    public static void main(String[] args) {
+        String[] categories = {"electronics", "stationery", "furniture", "toys"};
+
+        for (String category : categories) {
+            System.out.println("Looking into category: " + category);
+
+            switch (category) {
+                case "electronics":
+                    System.out.println("Showing all electronic items like laptops, cables...");
+                    break;
+                case "stationery":
+                    System.out.println("Listing pens, notebooks, and office supplies...");
+                    break;
+                case "furniture":
+                    System.out.println("Displaying chairs, tables, and cabinets...");
+                    break;
+                case "toys":
+                    System.out.println("Inventory contains toys for kids age 3+...");
+                    break;
+                default:
+                    System.out.println("Category not found in inventory system.");
+            }
+
+            System.out.println("-------------------------------");
+        }
+
+        System.out.println("Inventory category check complete.");
+    }
+}
