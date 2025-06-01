@@ -1,30 +1,40 @@
-public class InventorySearch {
+public class InventorySearchUpdated {
     public static void main(String[] args) {
-        String[] categories = {"electronics", "stationery", "furniture", "toys"};
+        String userRole = "staff"; // Try changing this to "manager"
+        String[] categories = {"electronics", "office", "groceries", "accessories"};
 
         for (String category : categories) {
-            System.out.println("Looking into category: " + category);
+            System.out.println("Checking category: " + category);
+            boolean isLowStock = category.equals("accessories"); // Simulated low stock
 
             switch (category) {
                 case "electronics":
-                    System.out.println("Showing all electronic items like laptops, cables...");
+                    System.out.println("Results: Mobile Phones, Monitors, Cables");
                     break;
-                case "stationery":
-                    System.out.println("Listing pens, notebooks, and office supplies...");
+                case "office":
+                    System.out.println("Results: Staplers, Folders, Printers");
                     break;
-                case "furniture":
-                    System.out.println("Displaying chairs, tables, and cabinets...");
+                case "groceries":
+                    if (userRole.equals("manager")) {
+                        System.out.println("Results: Snacks, Beverages, Cleaning Supplies");
+                    } else {
+                        System.out.println("Access Denied: Manager role required.");
+                    }
                     break;
-                case "toys":
-                    System.out.println("Inventory contains toys for kids age 3+...");
+                case "accessories":
+                    System.out.println("Results: Chargers, USB Drives, Bags");
                     break;
                 default:
-                    System.out.println("Category not found in inventory system.");
+                    System.out.println("No such category in system.");
             }
 
-            System.out.println("-------------------------------");
+            if (isLowStock) {
+                System.out.println("⚠️ Alert: Low stock in " + category + " category. Please restock soon.");
+            }
+
+            System.out.println("---------------------------------");
         }
 
-        System.out.println("Inventory category check complete.");
+        System.out.println("Inventory lookup complete.");
     }
 }
